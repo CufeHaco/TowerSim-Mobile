@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <title>TowerSim Mobile — SimTower Clone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-container">
+    <!-- Top HUD -->
+    <div id="hud">
+      <div class="hud-item">
+        <span class="label">💰</span>
+        <span id="money">$50,000</span>
+      </div>
+      <div class="hud-item">
+        <span class="label">👥</span>
+        <span id="pop">0</span>
+      </div>
+      <div class="hud-item">
+        <span class="label">⭐</span>
+        <span id="stars">1</span>
+      </div>
+      <div class="hud-item">
+        <span class="label">📅</span>
+        <span id="day">Day 1</span>
+      </div>
+      <div class="hud-item">
+        <span class="label">🕒</span>
+        <span id="time">08:00</span>
+      </div>
+    </div>
+
+    <!-- Main canvas area -->
+    <div id="canvas-wrap">
+      <canvas id="gameCanvas"></canvas>
+      <div id="floor-hint"></div>
+    </div>
+
+    <!-- Bottom toolbar -->
+    <div id="toolbar">
+      <button class="tool active" data-tool="select" title="Select / Pan">👆</button>
+      <button class="tool" data-tool="office" title="Office ($25k)">🏢</button>
+      <button class="tool" data-tool="condo" title="Condo ($45k)">🏠</button>
+      <button class="tool" data-tool="hotel" title="Hotel ($35k)">🛏️</button>
+      <button class="tool" data-tool="restaurant" title="Restaurant ($20k)">🍔</button>
+      <button class="tool" data-tool="elevator" title="Elevator ($15k)">🛗</button>
+      <button class="tool" data-tool="stairs" title="Stairs ($5k)">🪜</button>
+      <button class="tool" data-tool="demolish" title="Demolish">💥</button>
+      <button class="tool" data-tool="pause" title="Pause / Menu">⏸️</button>
+    </div>
+
+    <!-- Status / messages -->
+    <div id="message"></div>
+
+    <!-- Overlay menus -->
+    <div id="start-screen" class="overlay">
+      <div class="panel">
+        <h1>🗼 TowerSim</h1>
+        <p class="subtitle">A mobile-friendly SimTower-inspired tower builder</p>
+        <p>Build floors • Manage elevators • Keep tenants happy • Grow your empire</p>
+        <button id="btn-start" class="big-btn">Start New Tower</button>
+        <button id="btn-continue" class="big-btn secondary" style="display:none;">Continue</button>
+        <p class="hint">Touch & drag to pan • Tap empty floor to build</p>
+      </div>
+    </div>
+
+    <div id="pause-menu" class="overlay hidden">
+      <div class="panel">
+        <h2>Paused</h2>
+        <button id="btn-resume" class="big-btn">Resume</button>
+        <button id="btn-save" class="big-btn secondary">Save</button>
+        <button id="btn-new" class="big-btn secondary">New Game</button>
+      </div>
+    </div>
+
+    <div id="win-screen" class="overlay hidden">
+      <div class="panel">
+        <h1>🏆 Tower Master!</h1>
+        <p id="win-text">You reached 5 stars!</p>
+        <button id="btn-continue-play" class="big-btn">Keep Building</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
